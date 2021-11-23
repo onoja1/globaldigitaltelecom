@@ -2,19 +2,75 @@
 <html lang="en">
 <head>
     <title>LOGIN</title>
+    <style>
+            .menu{
+        color: rgb(0, 81, 255);
+        text-align: center;
+        font-size: 30px;
+    }
+    ul{
+        list-style: none;
+    }
+    .menu li{
+        display: inline-block;
+        padding: 10px;
+    }
+    .menu a{
+        text-decoration: none;
+    }
+    </style>
 </head>
-<body>
-    <form action="">
-        <input style="color: chartreuse; background-color: rgb(43, 214, 226); margin: 30px; padding: 30px;" type="email" name="email" class="form-control" placeholder="EMAIL ADDRESS" required>
-        <input style="color: chartreuse; background-color: rgb(43, 153, 226); margin: 30px; padding: 30px;" type="password" name="password" class="form-control" placeholder="PASSWORD" required>
-    </div><select  class="form-select" aria-label="Default select example" required>
-        <option selected>Open this to select gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-    </select>
-    <a href="index.html">back to homepage</a>
-    <button type="login" class="btn btn-primary">login</button>
-    </form>
+<body style="background-image: url(oVPkr9.jpeg); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
+    <div class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="jet.html">Join us</a></li>
+            <li><a href=""> Products</a></li>
+        </ul>
+    </div>
+
+    <h1 style="color: chartreuse;">Kindly Login To Your Account <br> If Already Registered With Us</h1>
+    <p id="message" style="font-size: 50px; color: yellow;"></p>
+
+    <div style="text-align: center;">
+        <br> <input type="username" placeholder="Enter Username" id="username" required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br> 
+        <br> <input type="email" placeholder="Enter Email" id="email" required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br> 
+        <br> <input type="password" placeholder="Enter Password" id="password" required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br>
+        <br> <select  class="form-select" aria-label="Default select example" required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br>> <br>
+            <option selected>Open this to select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <br><br> <button class="btn btn-primary" onclick="go()" style="font-size: 40px; width: 200px; height: 50px; border-radius: 50px; border-color:green;">Login</button> <br><br>
+         </div>
+
+         <script>
+            function go(){
+                var username = document.getElementById("username").value
+                var email = document.getElementById("email").value
+                var password = document.getElementById("password").value
+                if(username === "" || email === "" || password === ""){
+                    document.getElementById("message").innerHTML = "Inputs Is Required"
+                }
+                else if(username.match(/^[A-Za-z]+$/+Number)){
+                    document.getElementById("message").innerHTML = "Invalid Username"
+                }
+                else if(email.match(!/\S+@\S+\.\S+/)){
+                document.getElementById("message").innerHTML = "Enter A Valid Email"
+            }
+                else if(password.length > 15){
+                    document.getElementById("message").innerHTML = "Incorrect Password"
+                }else{
+                    document.getElementById("message").innerHTML = "Welcome, login successfully"
+                    window.location.href="menu.html"
+                }
+    
+            }
+        </script>
+      
+    
 
 </body>
 </html>

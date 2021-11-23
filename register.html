@@ -1,26 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head >
-    <title>SIGN IN</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .love{
+        background-image: url("original.jpeg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+    }
+    .menu{
+        color: rgb(0, 81, 255);
+        text-align: center;
+        font-size: 30px;
+    }
+    ul{
+        list-style: none;
+    }
+    .menu li{
+        display: inline-block;
+        padding: 10px;
+    }
+    .menu a{
+        text-decoration: none;
+    }
+</style>
 
-    <style>
-        input{
-            color: hotpink;
-            font-size: 20px;
-        }
-    </style>
 </head>
-<body>
-    <form action="">
-        <input style="background-color: wheat; color: blue; " type="text" name="fullname" class="form-control" placeholder="Enter Your Full Name" required>
-        <input type="number" name="number" class="form-control" placeholder="Phone Number" required>
-        <input type="email" name="emailaddress" class="form-control" placeholder="Email Adderss" required>
-        <input type="text" name="password" class="form-control" placeholder="Password" required>
-        <button class="btn btn-primary">Submit</button>
-    </form>
-    <a href="login.html">CLICK HERE TO LOGIN</a> <br>
-    <a href="register.html">back to register</a>
-    
+<body class="love">
+    <div class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="jet.html">Join us</a></li>
+            <li><a href=""> Products</a></li>
+        </ul>
+    </div>
+
+    <h1 style="font-size: 70px; color: chartreuse;">Register</h1>
+   <marquee behavior="scroll" direction="up" scrollamount="3"> <h2 style="font-style: italic; text-align: center; font-size: 60px; color: blue;">Welcome</h2></marquee>
+
+    <p id="message" style="font-size: 50px; color: blue;"></p>
+
+    <div style="text-align: center">
+        <br> <input type="text" placeholder="Enter Surname" id="surname" required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br> 
+        <br> <input type="text" placeholder="Enter First Name" id="firstname" required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br> 
+        <br> <input type="text" placeholder="Enter Other Names" id="othernames" required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br> 
+        <br> <input type="email" placeholder="Enter Email" id="email" required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br> 
+        <br> <input type="password" placeholder="Enter Password" id="password" required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br>
+        <br> <input type="password" placeholder="Enter To Confirm Password" id="confirmpassword" required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br>
+        <br> <input type="number" placeholder="Enter Phone Number" id="phonenumber"required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br> 
+        <br> <select  class="form-select" aria-label="Default select example" required style="width: 500px; height: 50px; border-radius: 20px; border-color:red; font-size: 30px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"> <br>> <br>
+            <option selected>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <br> <button class="btn btn-primary" onclick="faith()" style="font-size: 40px; width: 200px; height: 50px; border-radius: 50px; border-color:green;">Submit</button> <br>
+    </div>
+
+    <script>
+        function faith(){
+            var surname = document.getElementById("surname").value
+            var firstname = document.getElementById("firstname").value
+            var othernames = document.getElementById("othernames").value
+            var email = document.getElementById("email").value
+            var password = document.getElementById("password").value
+            var confirmpassword = document.getElementById("confirmpassword").value
+            var phonenumber = document.getElementById("phonenumber").value
+
+            if(surname === "" || firstname === "" || othernames === "" || email === "" || password === "" || confirmpassword === "" || phonenumber === ""){
+                document.getElementById("message").innerHTML = "This Input Is Required"
+            }
+            else if(!surname.match(/^[A-Za-z ]+$/)){
+                document.getElementById("message").innerHTML = "Enter A Valid Name"
+            }
+            else if(surname.length < 2 || surname.length > 15){
+                document.getElementById("message").innerHTML = "Surname Must Be Greater Than 2 Characters And Not More Than 15 Characters"
+            }
+            else if(!firstname.match(/^[A-Za-z ]+$/)){
+                document.getElementById("message").innerHTML = "Enter A Valid Name"
+            }
+            else if(firstname.length < 2 || firstname.length > 15){
+                document.getElementById("message").innerHTML = "First Name Must Be Greater Than 2 Characters And Not More Than 15 Characters"
+            }
+            else if(!othernames.match(/^[A-Za-z ]+$/)){
+                document.getElementById("message").innerHTML = "Enter A Valid Name"
+            }
+            else if(othernames.length < 2 || othernames.length > 15){
+                document.getElementById("message").innerHTML = "Other Names Must Be Greater Than 2 Characters And Not More Than 15 Characters"
+            }
+            else if(!email.match(/\S+@\S+\.\S+/)){
+                document.getElementById("message").innerHTML = "Enter A Valid Email"
+            }
+            else if(password != confirmpassword){
+                document.getElementById("message").innerHTML = "Confirm Password Does Not Match Password"
+            }
+            else if(password.length < 4 || confirmpassword.length < 4){
+                document.getElementById("message").innerHTML = "Password Must Be More Than 3 Characters"
+            }
+            else if(password.length > 15 || confirmpassword.length > 15){
+                document.getElementById("message").innerHTML = "Password Must Not Be More Than 15 Characters"
+            }else{
+                document.getElementById("message").innerHTML = "Registration Successful"
+                window.location.href="login.html"
+            }
+            
+        }
+    </script>
+
 </body>
-</html> 
+</html>
